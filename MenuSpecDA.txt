@@ -1,0 +1,11 @@
+Lommeregner menu
+(Tryk menupunkt eller 0 for at afslutte)
+Plus;add
+Minus;subtract
+Gange;multiply
+Divider;divide
+Sum;sum
+Minimum;minimum
+Maximum;maximum
+Gennemsnit;average
+Udtryk;expression
