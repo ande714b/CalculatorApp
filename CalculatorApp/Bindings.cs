@@ -28,6 +28,26 @@ namespace CalculatorApp
                     Console.WriteLine(Calculator.Add(subtract1, subtract2));
                     break;
 
+                case "sum":
+                    bool end = false;
+                    double[] numbers = new double[10];
+                    int i = 0;
+                    Console.WriteLine("Indtast tal og få sum, afslut med 'ENTER' :");
+                    while (!end)
+                    {
+                        string tal = Console.ReadLine();
+
+                        if (tal == "/n")
+                        {
+                            Array.Resize(ref numbers, i);
+                            break;
+                        }
+                        numbers[i] = double.Parse(tal);
+                        i++;
+                    }
+
+                    break;
+
                 default:
                     Console.WriteLine("Menuen eksisterer ikke...");
                     break;
