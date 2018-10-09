@@ -43,7 +43,7 @@ namespace CalculatorApp
                             end = true;
                         }
 
-                        else if (i > 9)
+                        else if (i > 19)
                         {
 
                             end = true;
