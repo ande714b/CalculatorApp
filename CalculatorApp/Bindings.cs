@@ -30,7 +30,7 @@ namespace CalculatorApp
 
                 case "sum":
                     bool end = false;
-                    double[] sumarray = new double[10];
+                    double[] sumarray = new double[20];
                     int i = 0;
                     Console.WriteLine("Indtast tal og få sum, afslut med 'ENTER' :");
                     while (!end)
