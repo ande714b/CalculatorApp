@@ -10,6 +10,37 @@ namespace CalculatorApp
 {
     class Bindings : IBindings
     {
+
+        public double[] ArrayInput()
+        {
+            bool end = false;  
+            double[] numbers = new double[20];
+            int i = 0;
+            while (!end)
+            {
+                string tal = Console.ReadLine();
+
+                if (tal == "")
+                {
+                    Array.Resize(ref numbers, i);
+                    end = true;
+                }
+
+                else if (i > 19)
+                {
+
+                    end = true;
+                }
+
+                else
+                {
+                    numbers[i] = Convert.ToDouble(tal);
+                    i++;
+                }
+            }
+            return numbers;
+        }
+
         public void Call(string menuID)
         {
             switch (menuID)
@@ -47,104 +78,24 @@ namespace CalculatorApp
                     break;
 
                 case "sum":
-                    bool end = false;
-                    double[] sumarray = new double[20];
-                    int i = 0;
-                    Console.WriteLine("Indtast tal og få sum, afslut med 'ENTER' :");
-                    while (!end)
-                    {
-                        string tal = Console.ReadLine();
-
-                        if (tal == "")
-                        {
-                            Array.Resize(ref sumarray, i);
-                            end = true;
-                        }
-
-                        else if (i > 19)
-                        {
-
-                            end = true;
-                        }
-
-                        else
-                        {
-                            sumarray[i] = Convert.ToDouble(tal);
-                            i++;
-                        }
-                       
-                    }
-                    Console.Write("Sum af indtastede tal: ");
-                    Console.WriteLine(Calculator.Sum(sumarray));
-                    break;
+                        Console.WriteLine("Indtast tal for at få sum, afslut med 'ENTER':");
+                        Console.WriteLine(("Sum af tal: ") + Calculator.Sum(ArrayInput()));
+                        break;
 
                 case "minimum":
-                    {
-                        bool end1 = false;  // fjollet måde at skrive end på, kan man bruge den tidligere bool somehow?
-                        double[] minarray = new double[20];
-                        int o = 0; // samme her som for bool, det fjollet
-                        Console.WriteLine("Indtast tal for at finde minimum, afslut med 'ENTER' :");
-                        while (!end1)
-                        {
-                            string tal1 = Console.ReadLine();
-
-                            if (tal1 == "")
-                            {
-                                Array.Resize(ref minarray, o);
-                                end1 = true;
-                            }
-
-                            else if (o > 19)
-                            {
-
-                                end1 = true;
-                            }
-
-                            else
-                            {
-                                minarray[o] = Convert.ToDouble(tal1);
-                                o++;
-                            }
-
-                        }
-                        Console.Write("Minimum af talrækken: ");
-                        Console.WriteLine(Calculator.Minimum(minarray));
+                        Console.WriteLine("Indtast tal for at finde minimum, afslut med 'ENTER':");
+                        Console.WriteLine(("Minimum af indtastede tal: ") + Calculator.Minimum(ArrayInput()));
                         break;
-                    }
 
                 case "maximum":
-                    bool end2 = false;  // fjollet måde at skrive end på, kan man bruge den tidligere bool somehow?
-                    double[] maxarray = new double[20];
-                    int p = 0; // samme her som for bool, det fjollet
-                    Console.WriteLine("Indtast tal for at finde maximum, afslut med 'ENTER' :");
-                    while (!end2)
-                    {
-                        string tal2 = Console.ReadLine(); // Kan man lave metode for disse linjer ? 
-                                                          // Så de ikke behøver at stå 3 gange
-                        if (tal2 == "")
-                        {
-                            Array.Resize(ref maxarray, p);
-                            end2 = true;
-                        }
-
-                        else if (p > 19)
-                        {
-
-                            end2 = true;
-                        }
-
-                        else
-                        {
-                            maxarray[p] = Convert.ToDouble(tal2);
-                            p++;
-                        }
-
-                    }
-                    Console.Write("Maximum af talrækken: ");
-                    Console.WriteLine(Calculator.Maximum(maxarray));
+                    Console.WriteLine("Indtast tal for at finde maximum, afslut med 'ENTER':");
+                    Console.WriteLine(("Maximum af indtastede tal: ") + Calculator.Maximum(ArrayInput()));
                     break;
 
-
+                case "average":
+                    Console.WriteLine("Indtast tal for at finde gennemsnit, afslut med 'ENTER':"); //Hed det gennemsnit?
+                    Console.WriteLine(("Gennemsnit af indtastede tal: ") + Calculator.Average(ArrayInput()));
+                    break;
 
                 default:
                     Console.WriteLine("Menuen eksisterer ikke...");
