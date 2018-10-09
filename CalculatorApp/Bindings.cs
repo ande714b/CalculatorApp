@@ -39,7 +39,7 @@ namespace CalculatorApp
                 }
             }
             return numbers;
-        }
+        } //metode for at indlæse bruger input til et array
 
         public void Call(string menuID)
         {
@@ -93,7 +93,8 @@ namespace CalculatorApp
                     break;
 
                 case "average":
-                    Console.WriteLine("Indtast tal for at finde gennemsnit, afslut med 'ENTER':"); //Hed det gennemsnit?
+                    Console.WriteLine("Indtast tal for at finde gennemsnit, afslut med 'ENTER':");
+                    //Hed det gennemsnit?
                     Console.WriteLine(("Gennemsnit af indtastede tal: ") + Calculator.Average(ArrayInput()));
                     break;
 
