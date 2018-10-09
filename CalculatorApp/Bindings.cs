@@ -60,6 +60,74 @@ namespace CalculatorApp
                     Console.WriteLine(Calculator.Sum(sumarray));
                     break;
 
+                case "minimum":
+                    {
+                        bool end1 = false;  // fjollet måde at skrive end på, kan man bruge den tidligere bool somehow?
+                        double[] minarray = new double[20];
+                        int o = 0; // samme her som for bool, det fjollet
+                        Console.WriteLine("Indtast tal for at finde minimum, afslut med 'ENTER' :");
+                        while (!end1)
+                        {
+                            string tal1 = Console.ReadLine();
+
+                            if (tal1 == "")
+                            {
+                                Array.Resize(ref minarray, o);
+                                end1 = true;
+                            }
+
+                            else if (o > 19)
+                            {
+
+                                end1 = true;
+                            }
+
+                            else
+                            {
+                                minarray[o] = Convert.ToDouble(tal1);
+                                o++;
+                            }
+
+                        }
+                        Console.Write("Minimum af talrækken: ");
+                        Console.WriteLine(Calculator.Minimum(minarray));
+                        break;
+                    }
+
+                case "maximum":
+                    bool end2 = false;  // fjollet måde at skrive end på, kan man bruge den tidligere bool somehow?
+                    double[] maxarray = new double[20];
+                    int p = 0; // samme her som for bool, det fjollet
+                    Console.WriteLine("Indtast tal for at finde maximum, afslut med 'ENTER' :");
+                    while (!end2)
+                    {
+                        string tal2 = Console.ReadLine(); // Kan man lave metode for disse linjer ? 
+                                                          // Så de ikke behøver at stå 3 gange
+                        if (tal2 == "")
+                        {
+                            Array.Resize(ref maxarray, p);
+                            end2 = true;
+                        }
+
+                        else if (p > 19)
+                        {
+
+                            end2 = true;
+                        }
+
+                        else
+                        {
+                            maxarray[p] = Convert.ToDouble(tal2);
+                            p++;
+                        }
+
+                    }
+                    Console.Write("Maximum af talrækken: ");
+                    Console.WriteLine(Calculator.Maximum(maxarray));
+                    break;
+
+
+
                 default:
                     Console.WriteLine("Menuen eksisterer ikke...");
                     break;
