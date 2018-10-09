@@ -30,22 +30,34 @@ namespace CalculatorApp
 
                 case "sum":
                     bool end = false;
-                    double[] numbers = new double[10];
+                    double[] sumarray = new double[10];
                     int i = 0;
                     Console.WriteLine("Indtast tal og få sum, afslut med 'ENTER' :");
                     while (!end)
                     {
                         string tal = Console.ReadLine();
 
-                        if (tal == "/n")
+                        if (tal == "")
                         {
-                            Array.Resize(ref numbers, i);
-                            break;
+                            Array.Resize(ref sumarray, i);
+                            end = true;
                         }
-                        numbers[i] = double.Parse(tal);
-                        i++;
-                    }
 
+                        else if (i > 9)
+                        {
+
+                            end = true;
+                        }
+
+                        else
+                        {
+                            sumarray[i] = Convert.ToDouble(tal);
+                            i++;
+                        }
+                       
+                    }
+                    Console.Write("Sum af indtastede tal: ");
+                    Console.WriteLine(Calculator.Sum(sumarray));
                     break;
 
                 default:
