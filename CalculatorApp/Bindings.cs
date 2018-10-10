@@ -67,7 +67,7 @@ namespace CalculatorApp
                     double subtract1 = double.Parse(Console.ReadLine());
                     Console.WriteLine("Skriv det andet tal: ");
                     double subtract2 = double.Parse(Console.ReadLine());
-                    Console.WriteLine(subtract1 + "-" + subtract2 + "=" + Calculator.Add(subtract1, subtract2));
+                    Console.WriteLine(subtract1 + "-" + subtract2 + "=" + Calculator.Subtract(subtract1, subtract2));
                     break;
 
                 case "multiply":
