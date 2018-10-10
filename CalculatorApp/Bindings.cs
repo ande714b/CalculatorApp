@@ -11,7 +11,7 @@ namespace CalculatorApp
     class Bindings : IBindings
     {
 
-        public double[] ArrayInput()
+        private double[] ArrayInput()
         {
             bool end = false;  
             double[] numbers = new double[20];
