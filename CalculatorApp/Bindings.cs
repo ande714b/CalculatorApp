@@ -34,8 +34,17 @@ namespace CalculatorApp
 
                 else
                 {
-                    numbers[i] = Convert.ToDouble(tal);
-                    i++;
+                    if (Double.TryParse(tal, out double j))
+                    {
+                        numbers[i] = j;
+                        i++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Forkert input");
+                        continue;
+                    }
+                 
                 }
             }
             return numbers;
@@ -78,13 +87,13 @@ namespace CalculatorApp
                     break;
 
                 case "sum":
-                        Console.WriteLine("Indtast tal for at få sum, afslut med 'ENTER':");
-                        Console.WriteLine(("Sum af tal: ") + Calculator.Sum(ArrayInput())); //Sender et array fra ArrayInput videre til vores 'Sum' metode og printer resultatet.
-                        break;
+                     Console.WriteLine("Indtast tal for at få sum, afslut med 'ENTER':");
+                     Console.WriteLine(("Sum af tal: ") + Calculator.Sum(ArrayInput())); //Sender et array fra ArrayInput videre til vores 'Sum' metode og printer resultatet.
+                     break;
 
                 case "minimum":
-                        Console.WriteLine("Indtast tal for at finde minimum, afslut med 'ENTER':");
-                        Console.WriteLine(("Minimum af indtastede tal: ") + Calculator.Minimum(ArrayInput())); //Sender et array fra ArrayInput videre til vores 'Minimum' metode og printer resultatet.
+                    Console.WriteLine("Indtast tal for at finde minimum, afslut med 'ENTER':");
+                    Console.WriteLine(("Minimum af indtastede tal: ") + Calculator.Minimum(ArrayInput())); //Sender et array fra ArrayInput videre til vores 'Minimum' metode og printer resultatet.
                     break;
 
                 case "maximum":
@@ -96,6 +105,14 @@ namespace CalculatorApp
                     Console.WriteLine("Indtast tal for at finde gennemsnit, afslut med 'ENTER':");
                     Console.WriteLine(("Gennemsnit af indtastede tal: ") + Calculator.Average(ArrayInput())); //Sender et array fra ArrayInput videre til vores 'Average' metode og printer resultatet.
                     break;
+                case "expression":
+                    Console.WriteLine("Indtast en expression som kan indeholde + og -");
+                    string input = Console.ReadLine();
+                    Console.WriteLine("Expression giver: {0}", Calculator.Expression(input));
+                    break;
+
+
+
 
                 default:
                     Console.WriteLine("Menuen eksisterer ikke...");
