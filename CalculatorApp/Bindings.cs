@@ -50,39 +50,60 @@ namespace CalculatorApp
             return numbers;
         } //metode for at indlæse bruger input til et array
 
+        private double CheckInput()
+        {
+            double output = 0;
+            bool end = false;
+            while (!end)
+            {
+                string tal = Console.ReadLine();
+                if (Double.TryParse(tal, out double j))
+                {
+                    output = j;
+                    end = true;
+                }
+                else
+                {
+                    Console.WriteLine("Forkert input");
+                }
+
+            }
+            return output;
+            
+        }
         public void Call(string menuID)
         {
             switch (menuID)
             {
                 case "add":
                     Console.WriteLine("Skriv det første tal: ");
-                    double add1 = double.Parse(Console.ReadLine());
+                    double add1 = CheckInput();
                     Console.WriteLine("Skriv det andet tal: ");
-                    double add2 = double.Parse(Console.ReadLine());
+                    double add2 = CheckInput();
                     Console.WriteLine(add1 + "+" + add2 + "=" + Calculator.Add(add1, add2)); //Prints the result in a pretty format
                     break;
 
                 case "subtract":
                     Console.WriteLine("Skriv det første tal: ");
-                    double subtract1 = double.Parse(Console.ReadLine());
+                    double subtract1 = CheckInput();
                     Console.WriteLine("Skriv det andet tal: ");
-                    double subtract2 = double.Parse(Console.ReadLine());
+                    double subtract2 = CheckInput();
                     Console.WriteLine(subtract1 + "-" + subtract2 + "=" + Calculator.Subtract(subtract1, subtract2));
                     break;
 
                 case "multiply":
                     Console.WriteLine("Skriv det første tal: ");
-                    double multiply1 = double.Parse(Console.ReadLine());
+                    double multiply1 = CheckInput();
                     Console.WriteLine("Skriv det andet tal: ");
-                    double multiply2 = double.Parse(Console.ReadLine());
+                    double multiply2 = CheckInput();
                     Console.WriteLine(multiply1 + "*" + multiply2 + "=" + Calculator.Multiply(multiply1, multiply2));
                     break;
 
                 case "divide":
                     Console.WriteLine("Skriv det tal du vil dividere: ");
-                    double divide1 = double.Parse(Console.ReadLine());
+                    double divide1 = CheckInput();
                     Console.WriteLine("Skriv det tal du vil dividere med: ");
-                    double divide2 = double.Parse(Console.ReadLine());
+                    double divide2 = CheckInput();
                     Console.WriteLine(divide1 + "/" + divide2 + "=" + Calculator.Divide(divide1, divide2));
                     break;
 
